@@ -1,0 +1,42 @@
+{
+ "_purpose": "Layer B re-pilot: Gemini Flash-Lite CEO (heterogeneous) vs Claude CEO with the same BU heads and governance roles",
+ "studies": [
+  {
+   "name": "repilotB",
+   "layer": "B",
+   "factorial": {
+    "separation": [
+     "distinct"
+    ],
+    "visibility": [
+     "shown",
+     "hidden"
+    ],
+    "ratifier": [
+     "on"
+    ],
+    "apex": [
+     "heterogeneous",
+     "claude_ceo"
+    ]
+   },
+   "episodes_per_cell": 1,
+   "seed0": 600,
+   "quarters": 40,
+   "windows": [
+    [
+     8,
+     12
+    ],
+    [
+     20,
+     24
+    ],
+    [
+     32,
+     36
+    ]
+   ]
+  }
+ ]
+}

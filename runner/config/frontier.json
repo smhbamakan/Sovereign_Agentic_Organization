@@ -1,0 +1,5 @@
+{"_purpose": "frontier replication with Claude (Claude Code CLI) and GPT (Codex CLI) on the key Layer A cells; throttled for subscription limits",
+ "studies": [
+  {"name": "frontA", "layer": "A", "factorial": {"separation": ["distinct"], "visibility": ["shown", "hidden"], "ratifier": ["on", "off"], "apex": ["frontier"]},
+   "episodes_per_cell": 2, "seed0": 3000, "quarters": 40, "windows": [[8, 12], [20, 24], [32, 36]]}],
+ "probes": {"councils": ["frontier"], "n_items": 120, "batch": 20}}

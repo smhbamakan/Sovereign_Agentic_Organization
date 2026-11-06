@@ -1,0 +1,176 @@
+{
+ "heterogeneous": {
+  "models": {
+   "joy_doubao_pro": {
+    "model": "doubao-seed-2.0-pro",
+    "acc": 0.6416666666666666,
+    "n_bin": 240,
+    "missing_bin": 0,
+    "mae": 29.90333333333333,
+    "n_num": 120,
+    "median_truth_abs": 10.35
+   },
+   "joy_gemini_lite": {
+    "model": "ge*-3.1-flash-lite",
+    "acc": 0.5958333333333333,
+    "n_bin": 240,
+    "missing_bin": 0,
+    "mae": 29.027833333333334,
+    "n_num": 120,
+    "median_truth_abs": 10.35
+   },
+   "joy_gpt_luna": {
+    "model": "gp*-5.6-luna",
+    "acc": 0.6,
+    "n_bin": 240,
+    "missing_bin": 20,
+    "mae": 28.8215,
+    "n_num": 120,
+    "median_truth_abs": 10.35
+   }
+  },
+  "pairs": {
+   "joy_doubao_pro|joy_gemini_lite": {
+    "phi": 0.5886139628953171,
+    "phi_lo": 0.47589048341917517,
+    "phi_hi": 0.687422143257153,
+    "n_bin": 240,
+    "both_wrong": 0.2833333333333333,
+    "rho_num": 0.8009268931092038,
+    "rho_lo": 0.707233907493841,
+    "rho_hi": 0.8652528297473125,
+    "n_num": 120
+   },
+   "joy_doubao_pro|joy_gpt_luna": {
+    "phi": 0.5250207936704705,
+    "phi_lo": 0.4133755581687416,
+    "phi_hi": 0.6379338711928381,
+    "n_bin": 240,
+    "both_wrong": 0.26666666666666666,
+    "rho_num": 0.788553230224237,
+    "rho_lo": 0.7003254134580408,
+    "rho_hi": 0.8514832394198694,
+    "n_num": 120
+   },
+   "joy_gemini_lite|joy_gpt_luna": {
+    "phi": 0.2981047802375559,
+    "phi_lo": 0.18017888135301047,
+    "phi_hi": 0.42187588427387684,
+    "n_bin": 240,
+    "both_wrong": 0.23333333333333334,
+    "rho_num": 0.8625504848552878,
+    "rho_lo": 0.7891524375406882,
+    "rho_hi": 0.9062369799503991,
+    "n_num": 120
+   }
+  }
+ },
+ "frontier": {
+  "models": {
+   "claude": {
+    "model": "sonnet",
+    "acc": 0.6583333333333333,
+    "n_bin": 240,
+    "missing_bin": 0,
+    "mae": 25.006166666666665,
+    "n_num": 120,
+    "median_truth_abs": 10.35
+   },
+   "codex": {
+    "model": "codex-cli:default",
+    "acc": 0.6875,
+    "n_bin": 240,
+    "missing_bin": 0,
+    "mae": 16.020666666666667,
+    "n_num": 120,
+    "median_truth_abs": 10.35
+   },
+   "joy_doubao_pro": {
+    "model": "doubao-seed-2.0-pro",
+    "acc": 0.625,
+    "n_bin": 240,
+    "missing_bin": 0,
+    "mae": 28.705666666666666,
+    "n_num": 120,
+    "median_truth_abs": 10.35
+   },
+   "joy_gemini_lite": {
+    "model": "ge*-3.1-flash-lite",
+    "acc": 0.575,
+    "n_bin": 240,
+    "missing_bin": 0,
+    "mae": 29.01016666666667,
+    "n_num": 120,
+    "median_truth_abs": 10.35
+   }
+  },
+  "pairs": {
+   "claude|codex": {
+    "phi": 0.3861897880772697,
+    "phi_lo": 0.255233493159616,
+    "phi_hi": 0.4945930867036992,
+    "n_bin": 240,
+    "both_wrong": 0.19166666666666668,
+    "rho_num": 0.6637560901011904,
+    "rho_lo": 0.539617940237705,
+    "rho_hi": 0.7573412677322633,
+    "n_num": 120
+   },
+   "claude|joy_doubao_pro": {
+    "phi": 0.5852462057405803,
+    "phi_lo": 0.47749280019498563,
+    "phi_hi": 0.6896888733973235,
+    "n_bin": 240,
+    "both_wrong": 0.2625,
+    "rho_num": 0.8849812204045525,
+    "rho_lo": 0.8306830336169617,
+    "rho_hi": 0.9259641161856018,
+    "n_num": 120
+   },
+   "claude|joy_gemini_lite": {
+    "phi": 0.5358256006107475,
+    "phi_lo": 0.41889892520220273,
+    "phi_hi": 0.6417462744489677,
+    "n_bin": 240,
+    "both_wrong": 0.2708333333333333,
+    "rho_num": 0.8942776104556793,
+    "rho_lo": 0.835295167951367,
+    "rho_hi": 0.9284472340673867,
+    "n_num": 120
+   },
+   "codex|joy_doubao_pro": {
+    "phi": 0.5732957469474316,
+    "phi_lo": 0.47384371044435686,
+    "phi_hi": 0.6809972030605008,
+    "n_bin": 240,
+    "both_wrong": 0.24583333333333332,
+    "rho_num": 0.6266615329634512,
+    "rho_lo": 0.4815710798581867,
+    "rho_hi": 0.7331542706699214,
+    "n_num": 120
+   },
+   "codex|joy_gemini_lite": {
+    "phi": 0.34777667633237086,
+    "phi_lo": 0.21881340187663856,
+    "phi_hi": 0.45967296794032375,
+    "n_bin": 240,
+    "both_wrong": 0.2125,
+    "rho_num": 0.5725199398532733,
+    "rho_lo": 0.4381642039401689,
+    "rho_hi": 0.6825464808722623,
+    "n_num": 120
+   },
+   "joy_doubao_pro|joy_gemini_lite": {
+    "phi": 0.5353648436081027,
+    "phi_lo": 0.42699101873421946,
+    "phi_hi": 0.6394755272187239,
+    "n_bin": 240,
+    "both_wrong": 0.2875,
+    "rho_num": 0.843477836539844,
+    "rho_lo": 0.7681023867641719,
+    "rho_hi": 0.9009046075059253,
+    "n_num": 120
+   }
+  }
+ }
+}

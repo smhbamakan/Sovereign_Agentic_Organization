@@ -1,0 +1,91 @@
+{
+ "_purpose": "pilot: Layer A 8 heterogeneous cells + 2 baselines x 1 episode; Layer B 2 cells; 60 probe items",
+ "studies": [
+  {
+   "name": "pilotA",
+   "layer": "A",
+   "factorial": {
+    "separation": [
+     "distinct",
+     "same"
+    ],
+    "visibility": [
+     "shown",
+     "hidden"
+    ],
+    "ratifier": [
+     "on",
+     "off"
+    ],
+    "apex": [
+     "heterogeneous"
+    ]
+   },
+   "baselines": [
+    "frozen",
+    "periodic"
+   ],
+   "episodes_per_cell": 1,
+   "seed0": 500,
+   "quarters": 40,
+   "windows": [
+    [
+     8,
+     12
+    ],
+    [
+     20,
+     24
+    ],
+    [
+     32,
+     36
+    ]
+   ],
+   "baseline_council": "homogeneous"
+  },
+  {
+   "name": "pilotB",
+   "layer": "B",
+   "factorial": {
+    "separation": [
+     "distinct"
+    ],
+    "visibility": [
+     "shown",
+     "hidden"
+    ],
+    "ratifier": [
+     "on"
+    ],
+    "apex": [
+     "heterogeneous"
+    ]
+   },
+   "episodes_per_cell": 1,
+   "seed0": 500,
+   "quarters": 40,
+   "windows": [
+    [
+     8,
+     12
+    ],
+    [
+     20,
+     24
+    ],
+    [
+     32,
+     36
+    ]
+   ]
+  }
+ ],
+ "probes": {
+  "councils": [
+   "heterogeneous"
+  ],
+  "n_items": 60,
+  "batch": 20
+ }
+}

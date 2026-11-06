@@ -1,0 +1,7 @@
+{"_purpose": "offline end-to-end test of the pipeline with a mock model (no API calls)",
+ "studies": [
+  {"name": "smokeA", "layer": "A", "factorial": {"separation": ["distinct", "same"], "visibility": ["shown"], "ratifier": ["on"], "apex": ["mock"]},
+   "baselines": ["frozen", "periodic"], "baseline_council": "mock", "episodes_per_cell": 1, "seed0": 1, "quarters": 14, "windows": [[3, 4], [7, 8], [10, 11]]},
+  {"name": "smokeB", "layer": "B", "factorial": {"separation": ["distinct"], "visibility": ["shown"], "ratifier": ["on"], "apex": ["mock"]},
+   "episodes_per_cell": 1, "seed0": 1, "quarters": 14, "windows": [[3, 4], [7, 8], [10, 11]]}],
+ "probes": {"councils": ["mock"], "n_items": 30, "batch": 15}}

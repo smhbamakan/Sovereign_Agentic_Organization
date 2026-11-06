@@ -1,0 +1,350 @@
+{
+ "_note": "Model registry, councils and rate limits. Default councils use: Mistral La Plateforme (free Experiment plan, MISTRAL_API_KEY), Google Gemini API free tier (GEMINI_API_KEY), Alibaba Model Studio Qwen Flash (low-cost pay-as-you-go, DASHSCOPE_API_KEY), and Claude Code / Codex subscriptions for the frontier council. OpenRouter alternatives: councils *_or (paid tier) and *_free. 'python run.py check' shows what each key resolves to; 'estimate' prints calls, days and approximate cost.",
+ "models": {
+  "gemma_p": {
+   "provider": "openrouter",
+   "tier": "paid",
+   "limit_group": "openrouter_paid",
+   "candidates": [
+    "google/gemma-4-31b-it",
+    "google/gemma-4*",
+    "google/gemma-3-27b-it"
+   ]
+  },
+  "nemotron_p": {
+   "provider": "openrouter",
+   "tier": "paid",
+   "limit_group": "openrouter_paid",
+   "max_tokens": 2500,
+   "candidates": [
+    "nvidia/nemotron-3-super-120b-a12b",
+    "nvidia/nemotron-3*",
+    "nvidia/llama-3.3-nemotron-super-49b-v1.5"
+   ]
+  },
+  "mistral_p": {
+   "provider": "openrouter",
+   "tier": "paid",
+   "limit_group": "openrouter_paid",
+   "candidates": [
+    "mistralai/mistral-small-3.2-24b-instruct",
+    "mistralai/mistral-small*",
+    "mistralai/mistral-medium*"
+   ]
+  },
+  "qwen_p": {
+   "provider": "openrouter",
+   "tier": "paid",
+   "limit_group": "openrouter_paid",
+   "max_tokens": 2500,
+   "candidates": [
+    "qwen/qwen3-32b",
+    "qwen/qwen3-235b-a22b-2507",
+    "qwen/qwen3*"
+   ]
+  },
+  "gemma": {
+   "provider": "openrouter",
+   "tier": "free",
+   "candidates": [
+    "google/gemma-4-31b-it:free",
+    "google/gemma-4-26b-a4b-it:free",
+    "google/gemma*"
+   ]
+  },
+  "nemotron": {
+   "provider": "openrouter",
+   "tier": "free",
+   "max_tokens": 2500,
+   "candidates": [
+    "nvidia/nemotron-3-super-120b-a12b:free",
+    "nvidia/nemotron-3-ultra-550b-a55b:free",
+    "nvidia/nemotron-3*"
+   ]
+  },
+  "xing": {
+   "provider": "openrouter",
+   "tier": "free",
+   "candidates": [
+    "xingchen-agi/*",
+    "minimax/*"
+   ]
+  },
+  "free_alt": {
+   "provider": "openrouter",
+   "tier": "free",
+   "max_tokens": 2500,
+   "candidates": [
+    "mistralai/*",
+    "qwen/*",
+    "meta-llama/*",
+    "deepseek/*",
+    "z-ai/*",
+    "openai/gpt-oss*",
+    "dots-studio/*",
+    "poolside/*",
+    "cohere/*"
+   ],
+   "_note": "critic in the free council; replaces thinkingmachines/inkling, whose free endpoint only serves registered agent apps (HTTP 403)"
+  },
+  "claude": {
+   "provider": "claude_cli",
+   "model": "sonnet",
+   "exe": null,
+   "_note": "set exe to the full path of claude(.exe/.cmd) if it is not on PATH"
+  },
+  "codex": {
+   "provider": "codex_cli",
+   "model": null,
+   "exe": null
+  },
+  "mock": {
+   "provider": "mock"
+  },
+  "mistral": {
+   "provider": "openai_compat",
+   "base_url": "https://api.mistral.ai/v1",
+   "key_env": "MISTRAL_API_KEY",
+   "limit_group": "mistral",
+   "candidates": [
+    "mistral-small-latest",
+    "mistral-small*",
+    "mistral-medium-latest"
+   ],
+   "usd_per_m_in": 0.0,
+   "usd_per_m_out": 0.0,
+   "_note": "free Experiment plan (phone verification; ~1 request/s; about 1B tokens/month per third-party summaries)"
+  },
+  "gemini_lite": {
+   "provider": "openai_compat",
+   "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+   "key_env": "GEMINI_API_KEY",
+   "limit_group": "gemini",
+   "candidates": [
+    "gemini-3.5-flash-lite",
+    "gemini-3.1-flash-lite",
+    "gemini-flash-lite-latest",
+    "gemini-2.5-flash-lite",
+    "gemini-*flash-lite*"
+   ],
+   "extra_body": {
+    "reasoning_effort": "low"
+   },
+   "max_tokens": 1500,
+   "usd_per_m_in": 0.0,
+   "usd_per_m_out": 0.0,
+   "_note": "free tier; Flash-Lite reported at 10 RPM / 500 requests per day (check your live quota in Google AI Studio)"
+  },
+  "qwen_flash": {
+   "provider": "openai_compat",
+   "base_url": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
+   "key_env": "DASHSCOPE_API_KEY",
+   "limit_group": "qwen",
+   "candidates": [
+    "qwen-flash",
+    "qwen3.7-flash",
+    "qwen3.5-flash",
+    "qwen-flash*"
+   ],
+   "extra_body": {
+    "enable_thinking": false
+   },
+   "usd_per_m_in": 0.1,
+   "usd_per_m_out": 0.4,
+   "_note": "pay-as-you-go; prices are conservative estimates (Qwen3.5 Flash list price); Qwen3.7 Flash is listed lower"
+  },
+  "joy_gemini_lite": {
+   "provider": "openai_compat",
+   "base_url": "https://api.joytokens.ai/openai/v1",
+   "chat_url": "https://api.joytokens.ai/openai/v1/chat/completions",
+   "key_env": "JOYTOKENS_API_KEY",
+   "limit_group": "joytokens",
+   "max_tokens": 1200,
+   "price_from_probe": true,
+   "candidates": [
+    "ge*-3.1-flash-lite"
+   ]
+  },
+  "joy_doubao_pro": {
+   "provider": "openai_compat",
+   "base_url": "https://api.joytokens.ai/openai/v1",
+   "chat_url": "https://api.joytokens.ai/openai/v1/chat/completions",
+   "key_env": "JOYTOKENS_API_KEY",
+   "limit_group": "joytokens",
+   "max_tokens": 1200,
+   "price_from_probe": true,
+   "candidates": [
+    "doubao-seed-2.0-pro"
+   ]
+  },
+  "joy_gpt_luna": {
+   "provider": "openai_compat",
+   "base_url": "https://api.joytokens.ai/openai/v1",
+   "chat_url": "https://api.joytokens.ai/openai/v1/chat/completions",
+   "key_env": "JOYTOKENS_API_KEY",
+   "limit_group": "joytokens",
+   "max_tokens": 2000,
+   "price_from_probe": true,
+   "candidates": [
+    "gp*-5.6-luna"
+   ],
+   "_note": "reasoning model: 2000-token cap avoids empty replies (1 of 30 in the smoke run)"
+  }
+ },
+ "councils": {
+  "homogeneous": {
+   "executor": "joy_gemini_lite",
+   "reviser": "joy_gemini_lite",
+   "critic": "joy_gemini_lite",
+   "ratifier": "joy_gemini_lite"
+  },
+  "heterogeneous": {
+   "executor": "joy_gemini_lite",
+   "reviser": "joy_doubao_pro",
+   "critic": "joy_gpt_luna",
+   "ratifier": "joy_gpt_luna"
+  },
+  "frontier": {
+   "executor": "claude",
+   "reviser": "codex",
+   "critic": "joy_doubao_pro",
+   "ratifier": "joy_gemini_lite"
+  },
+  "claude_ceo": {
+   "executor": "claude",
+   "bu1": "joy_gemini_lite",
+   "bu2": "joy_gemini_lite",
+   "reviser": "joy_doubao_pro",
+   "critic": "joy_gpt_luna",
+   "ratifier": "joy_gpt_luna"
+  },
+  "homogeneous_or": {
+   "executor": "gemma_p",
+   "reviser": "gemma_p",
+   "critic": "gemma_p",
+   "ratifier": "gemma_p"
+  },
+  "heterogeneous_or": {
+   "executor": "gemma_p",
+   "reviser": "nemotron_p",
+   "critic": "mistral_p",
+   "ratifier": "qwen_p"
+  },
+  "homogeneous_free": {
+   "executor": "gemma",
+   "reviser": "gemma",
+   "critic": "gemma",
+   "ratifier": "gemma"
+  },
+  "heterogeneous_free": {
+   "executor": "gemma",
+   "reviser": "nemotron",
+   "critic": "free_alt",
+   "ratifier": "xing"
+  },
+  "mock": {
+   "executor": "mock",
+   "reviser": "mock",
+   "critic": "mock",
+   "ratifier": "mock"
+  },
+  "homogeneous_v15": {
+   "executor": "mistral",
+   "reviser": "mistral",
+   "critic": "mistral",
+   "ratifier": "mistral"
+  },
+  "heterogeneous_v15": {
+   "executor": "mistral",
+   "reviser": "qwen_flash",
+   "critic": "gemini_lite",
+   "ratifier": "gemini_lite"
+  },
+  "frontier_v15": {
+   "executor": "claude",
+   "reviser": "codex",
+   "critic": "gemini_lite",
+   "ratifier": "qwen_flash"
+  },
+  "claude_ceo_homog": {
+   "executor": "claude",
+   "bu1": "joy_gemini_lite",
+   "bu2": "joy_gemini_lite",
+   "reviser": "joy_gemini_lite",
+   "critic": "joy_gemini_lite",
+   "ratifier": "joy_gemini_lite"
+  }
+ },
+ "limits": {
+  "openrouter": {
+   "min_interval_s": 4.5,
+   "per_minute": 15,
+   "per_day": 950,
+   "_note": "free models: 20/min; 1000/day once >= $10 credits were ever purchased, otherwise 50/day -> set per_day to 45",
+   "max_concurrent": 2
+  },
+  "claude_cli": {
+   "min_interval_s": 3,
+   "per_minute": 12,
+   "per_day": 1500,
+   "window_hours": 5,
+   "per_window": 250,
+   "_note": "raised for speed; if your plan limit is hit, the runner backs off, then pauses; lower per_window if that happens",
+   "max_concurrent": 1
+  },
+  "codex_cli": {
+   "min_interval_s": 3,
+   "per_minute": 12,
+   "per_day": 1500,
+   "window_hours": 5,
+   "per_window": 250,
+   "_note": "adjust to your ChatGPT/Codex plan",
+   "max_concurrent": 1
+  },
+  "mock": {
+   "min_interval_s": 0,
+   "per_minute": 0,
+   "per_day": 0,
+   "max_concurrent": 8
+  },
+  "openrouter_paid": {
+   "min_interval_s": 1.0,
+   "per_minute": 50,
+   "per_day": 20000,
+   "_note": "paid endpoints: limits are generous; this only spaces calls",
+   "max_concurrent": 2
+  },
+  "mistral": {
+   "min_interval_s": 1.2,
+   "per_minute": 40,
+   "per_day": 20000,
+   "_note": "free plan ~1 request/second",
+   "max_concurrent": 2
+  },
+  "gemini": {
+   "min_interval_s": 7,
+   "per_minute": 8,
+   "per_day": 450,
+   "_note": "free tier Flash-Lite ~10 RPM / 500 RPD; the daily quota resets at midnight Pacific time",
+   "max_concurrent": 2
+  },
+  "qwen": {
+   "min_interval_s": 0.5,
+   "per_minute": 60,
+   "per_day": 50000,
+   "max_concurrent": 2
+  },
+  "joytokens": {
+   "min_interval_s": 0.05,
+   "per_minute": 90,
+   "per_day": 50000,
+   "budget_usd": 1250,
+   "_note": "JoyTokens enforces a per-minute window (seen at ~12 parallel episodes); 90/min and 8 parallel episodes stay below it. Budget in credits for this folder.",
+   "max_concurrent": 8
+  }
+ },
+ "temperature": 0.7,
+ "max_tokens": 900,
+ "est_tokens_in": 2500,
+ "est_tokens_out": 400
+}

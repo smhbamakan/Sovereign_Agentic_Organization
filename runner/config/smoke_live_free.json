@@ -1,0 +1,117 @@
+{
+ "_purpose": "first live test (~150 calls): every model answers; one short episode per layer; Claude and Codex answer a few probe items (free ':free' endpoints only; subject to shared-pool rate limits)",
+ "studies": [
+  {
+   "name": "liveA",
+   "layer": "A",
+   "factorial": {
+    "separation": [
+     "distinct"
+    ],
+    "visibility": [
+     "shown"
+    ],
+    "ratifier": [
+     "on"
+    ],
+    "apex": [
+     "heterogeneous_free"
+    ]
+   },
+   "episodes_per_cell": 1,
+   "seed0": 1,
+   "quarters": 8,
+   "windows": [
+    [
+     2,
+     2
+    ],
+    [
+     4,
+     4
+    ],
+    [
+     6,
+     6
+    ]
+   ]
+  },
+  {
+   "name": "liveB",
+   "layer": "B",
+   "factorial": {
+    "separation": [
+     "distinct"
+    ],
+    "visibility": [
+     "shown"
+    ],
+    "ratifier": [
+     "on"
+    ],
+    "apex": [
+     "heterogeneous_free"
+    ]
+   },
+   "episodes_per_cell": 1,
+   "seed0": 1,
+   "quarters": 6,
+   "windows": [
+    [
+     2,
+     2
+    ],
+    [
+     3,
+     3
+    ],
+    [
+     4,
+     4
+    ]
+   ]
+  },
+  {
+   "name": "liveF",
+   "layer": "A",
+   "factorial": {
+    "separation": [
+     "distinct"
+    ],
+    "visibility": [
+     "shown"
+    ],
+    "ratifier": [
+     "on"
+    ],
+    "apex": [
+     "frontier"
+    ]
+   },
+   "episodes_per_cell": 1,
+   "seed0": 1,
+   "quarters": 3,
+   "windows": [
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     2,
+     2
+    ]
+   ]
+  }
+ ],
+ "probes": {
+  "councils": [
+   "frontier"
+  ],
+  "n_items": 10,
+  "batch": 10
+ }
+}

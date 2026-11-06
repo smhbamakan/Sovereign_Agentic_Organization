@@ -1,0 +1,92 @@
+{
+ "_purpose": "pilot: one episode per Layer A cell and baseline, two Layer B cells, 60 probe items for the heterogeneous council (free ':free' endpoints only; subject to shared-pool rate limits)",
+ "studies": [
+  {
+   "name": "pilotA",
+   "layer": "A",
+   "factorial": {
+    "separation": [
+     "distinct",
+     "same"
+    ],
+    "visibility": [
+     "shown",
+     "hidden"
+    ],
+    "ratifier": [
+     "on",
+     "off"
+    ],
+    "apex": [
+     "homogeneous_free",
+     "heterogeneous_free"
+    ]
+   },
+   "baselines": [
+    "frozen",
+    "periodic"
+   ],
+   "episodes_per_cell": 1,
+   "seed0": 500,
+   "quarters": 40,
+   "windows": [
+    [
+     8,
+     12
+    ],
+    [
+     20,
+     24
+    ],
+    [
+     32,
+     36
+    ]
+   ],
+   "baseline_council": "homogeneous_free"
+  },
+  {
+   "name": "pilotB",
+   "layer": "B",
+   "factorial": {
+    "separation": [
+     "distinct"
+    ],
+    "visibility": [
+     "shown",
+     "hidden"
+    ],
+    "ratifier": [
+     "on"
+    ],
+    "apex": [
+     "heterogeneous_free"
+    ]
+   },
+   "episodes_per_cell": 1,
+   "seed0": 500,
+   "quarters": 40,
+   "windows": [
+    [
+     8,
+     12
+    ],
+    [
+     20,
+     24
+    ],
+    [
+     32,
+     36
+    ]
+   ]
+  }
+ ],
+ "probes": {
+  "councils": [
+   "heterogeneous_free"
+  ],
+  "n_items": 60,
+  "batch": 20
+ }
+}

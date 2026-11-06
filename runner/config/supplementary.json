@@ -1,0 +1,257 @@
+{
+ "_purpose": "Supplementary study (response to review): S1 outcome-profile perturbation and signal ablation; S2 common ratifier and blind-random ratifiers; S3 Gemini CEO in Case B and oracle/frozen baselines; S4 Claude executor in Case A; probe battery under a ratifier persona",
+ "councils": {
+  "homog_commonrat": {
+   "executor": "joy_gemini_lite",
+   "reviser": "joy_gemini_lite",
+   "critic": "joy_gpt_luna",
+   "ratifier": "joy_gpt_luna"
+  },
+  "gemini_ceo": {
+   "executor": "joy_gemini_lite",
+   "bu1": "joy_gemini_lite",
+   "bu2": "joy_gemini_lite",
+   "reviser": "joy_doubao_pro",
+   "critic": "joy_gpt_luna",
+   "ratifier": "joy_gpt_luna"
+  },
+  "claude_exec_A": {
+   "executor": "claude",
+   "reviser": "joy_doubao_pro",
+   "critic": "joy_gpt_luna",
+   "ratifier": "joy_gpt_luna"
+  },
+  "persona_gemini": {
+   "executor": "joy_gemini_lite",
+   "reviser": "joy_gemini_lite",
+   "critic": "joy_gemini_lite",
+   "ratifier": "joy_gemini_lite"
+  },
+  "persona_doubao": {
+   "executor": "joy_doubao_pro",
+   "reviser": "joy_doubao_pro",
+   "critic": "joy_doubao_pro",
+   "ratifier": "joy_doubao_pro"
+  },
+  "persona_luna": {
+   "executor": "joy_gpt_luna",
+   "reviser": "joy_gpt_luna",
+   "critic": "joy_gpt_luna",
+   "ratifier": "joy_gpt_luna"
+  }
+ },
+ "studies": [
+  {
+   "name": "supA_perturb",
+   "layer": "A",
+   "factorial": {
+    "separation": [
+     "same",
+     "distinct"
+    ],
+    "visibility": [
+     "perturbed",
+     "ablated"
+    ],
+    "ratifier": [
+     "off"
+    ],
+    "apex": [
+     "heterogeneous"
+    ]
+   },
+   "episodes_per_cell": 4,
+   "seed0": 1000,
+   "quarters": 40,
+   "windows": [
+    [
+     8,
+     12
+    ],
+    [
+     20,
+     24
+    ],
+    [
+     32,
+     36
+    ]
+   ]
+  },
+  {
+   "name": "supA_commonrat",
+   "layer": "A",
+   "factorial": {
+    "separation": [
+     "distinct"
+    ],
+    "visibility": [
+     "shown",
+     "hidden"
+    ],
+    "ratifier": [
+     "on"
+    ],
+    "apex": [
+     "homog_commonrat"
+    ]
+   },
+   "episodes_per_cell": 4,
+   "seed0": 1000,
+   "quarters": 40,
+   "windows": [
+    [
+     8,
+     12
+    ],
+    [
+     20,
+     24
+    ],
+    [
+     32,
+     36
+    ]
+   ]
+  },
+  {
+   "name": "supA_random",
+   "layer": "A",
+   "factorial": {
+    "separation": [
+     "distinct"
+    ],
+    "visibility": [
+     "shown",
+     "hidden"
+    ],
+    "ratifier": [
+     "random25",
+     "random90"
+    ],
+    "apex": [
+     "homogeneous"
+    ]
+   },
+   "episodes_per_cell": 2,
+   "seed0": 1000,
+   "quarters": 40,
+   "windows": [
+    [
+     8,
+     12
+    ],
+    [
+     20,
+     24
+    ],
+    [
+     32,
+     36
+    ]
+   ],
+   "baselines": [
+    "oracle"
+   ],
+   "baseline_councils": [
+    "homogeneous",
+    "claude_exec_A"
+   ]
+  },
+  {
+   "name": "supA_claude",
+   "layer": "A",
+   "factorial": {
+    "separation": [
+     "same"
+    ],
+    "visibility": [
+     "shown",
+     "hidden"
+    ],
+    "ratifier": [
+     "on"
+    ],
+    "apex": [
+     "claude_exec_A"
+    ]
+   },
+   "episodes_per_cell": 2,
+   "seed0": 1000,
+   "quarters": 40,
+   "windows": [
+    [
+     8,
+     12
+    ],
+    [
+     20,
+     24
+    ],
+    [
+     32,
+     36
+    ]
+   ]
+  },
+  {
+   "name": "supB_gemini",
+   "layer": "B",
+   "factorial": {
+    "separation": [
+     "same",
+     "distinct"
+    ],
+    "visibility": [
+     "shown",
+     "hidden"
+    ],
+    "ratifier": [
+     "on"
+    ],
+    "apex": [
+     "gemini_ceo"
+    ]
+   },
+   "episodes_per_cell": 2,
+   "seed0": 2000,
+   "quarters": 40,
+   "windows": [
+    [
+     8,
+     12
+    ],
+    [
+     20,
+     24
+    ],
+    [
+     32,
+     36
+    ]
+   ],
+   "baselines": [
+    "oracle",
+    "frozen"
+   ],
+   "baseline_councils": [
+    "claude_ceo",
+    "gemini_ceo"
+   ]
+  }
+ ],
+ "probes": {
+  "councils": [
+   "persona_gemini",
+   "persona_doubao",
+   "persona_luna"
+  ],
+  "n_items": 360,
+  "batch": 20,
+  "personas": {
+   "persona_gemini": "You are the Independent Ratifier on the governance council of a manufacturing firm. Answer this judgement test carefully. Reply with a single JSON object only.",
+   "persona_doubao": "You are the Independent Ratifier on the governance council of a manufacturing firm. Answer this judgement test carefully. Reply with a single JSON object only.",
+   "persona_luna": "You are the Independent Ratifier on the governance council of a manufacturing firm. Answer this judgement test carefully. Reply with a single JSON object only."
+  }
+ }
+}

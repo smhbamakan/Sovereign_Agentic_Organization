@@ -48,6 +48,7 @@ No API access is needed. The script rebuilds every derived file in `outputs/` an
 | `outputs/main/review_an.json` | `review_an.py` | Ratifier discrimination (Table 9), β(τ) (Fig. 6), numeric error floor, majority vote, episode accounting |
 | `outputs/followup/supp.json`, `perm.json` | `supp_an.py`, `perm.py` | Follow-up experiments S1–S4 and permutation tests (Fig. 7) |
 | `outputs/model/verify*_results.json` | `model/verify*.py` | Numerical verification of Propositions 1–5 |
+| `outputs/robustness/periodic_sim.json`, `prop4_test.json` | `periodic_sim.py`, `prop4_test.py` | Periodic human revision with less informed founders; test of Proposition 4a |
 | `outputs/robustness/alt_criteria.json` | `alt_criteria.py` | Benchmark robustness: independent re-solution of θ and re-analysis under two stakeholder-oriented criteria |
 | `figures/fig1–fig7` | `figs_pub.py`, `fig7.py` | All manuscript figures |
 

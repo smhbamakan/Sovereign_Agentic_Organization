@@ -28,6 +28,8 @@ python "$A/perm.py"                      # perm.json (within-episode permutation
 echo "[2b] benchmark robustness (about 30 minutes)"
 mkdir -p "$ROOT/outputs/robustness"; cd "$ROOT/outputs/robustness"
 python "$A/alt_criteria.py"               # alt_criteria.json
+python "$A/periodic_sim.py"               # periodic_sim.json (re-simulated periodic human revision)
+python "$A/prop4_test.py"                 # prop4_test.json (ratification slows adaptation)
 
 echo "[3/4] figures"
 cd "$ROOT/outputs/main"

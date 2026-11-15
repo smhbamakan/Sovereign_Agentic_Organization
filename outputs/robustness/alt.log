@@ -1,0 +1,41 @@
+shareholder 0 [0.519 0.28  0.105 0.096] 171s
+shareholder 1 [0.224 0.247 0.068 0.461] 166s
+shareholder 2 [0.35 0.3  0.   0.35] 159s
+shareholder 3 [0.245 0.216 0.266 0.273] 167s
+stakeholder 0 [0.2  0.3  0.25 0.25] 24s
+stakeholder 1 [0.2   0.125 0.25  0.425] 24s
+stakeholder 2 [0.253 0.215 0.264 0.268] 24s
+stakeholder 3 [0.245 0.216 0.266 0.273] 25s
+sustainability 0 [0.2  0.3  0.25 0.25] 25s
+sustainability 1 [0.093 0.207 0.349 0.351] 24s
+sustainability 2 [0.253 0.215 0.264 0.268] 25s
+sustainability 3 [0.245 0.216 0.266 0.273] 25s
+/usr/local/lib/python3.13/site-packages/statsmodels/base/model.py:589: SingularMatrixWarning: Random effects covariance is singular
+  return -self.score(params, *args) / nobs
+/usr/local/lib/python3.13/site-packages/statsmodels/base/model.py:589: SingularMatrixWarning: Random effects covariance is singular
+  return -self.score(params, *args) / nobs
+/usr/local/lib/python3.13/site-packages/statsmodels/base/model.py:589: SingularMatrixWarning: Random effects covariance is singular
+  return -self.score(params, *args) / nobs
+/home/claude/sovereign_agentic_organization/outputs/robustness/../../analysis/alt_criteria.py:104: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+  mm = smf.mixedlm("signed ~ sep_x*vis_x + rat_x + council_x", sov, groups=sov.eid).fit()
+shareholder {"coupling": {"th": {"b": 0.032338392930783895, "se": 0.004158675746879641, "p": 7.477832843197274e-15}, "y": {"b": -0.026681348966024036, "se": 0.007386143889148769, "p": 0.0003034327179397645}, "T": {"b": -0.09772687631099365, "se": 0.009226806628240502, "p": 3.258845985581846e-26}, "T0": {"b": 0.009926209164800014, "se": 0.007977007048736015, "p": 0.2133698336012576}}, "y_x_shown": {"b": -0.005291180800104514, "p": 4.963280841226229e-08}, "signed_vis": {"b": -0.03473104697876828, "p": 0.005068119674481154}}
+/usr/local/lib/python3.13/site-packages/statsmodels/regression/mixed_linear_model.py:2384: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  rslt = super().fit(
+/home/claude/sovereign_agentic_organization/outputs/robustness/../../analysis/alt_criteria.py:104: ConvergenceWarning: Retrying MixedLM optimization with lbfgs
+  mm = smf.mixedlm("signed ~ sep_x*vis_x + rat_x + council_x", sov, groups=sov.eid).fit()
+/usr/local/lib/python3.13/site-packages/statsmodels/regression/mixed_linear_model.py:2384: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  rslt = super().fit(
+/home/claude/sovereign_agentic_organization/outputs/robustness/../../analysis/alt_criteria.py:104: ConvergenceWarning: Retrying MixedLM optimization with cg
+  mm = smf.mixedlm("signed ~ sep_x*vis_x + rat_x + council_x", sov, groups=sov.eid).fit()
+/usr/local/lib/python3.13/site-packages/statsmodels/regression/mixed_linear_model.py:2384: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  rslt = super().fit(
+/home/claude/sovereign_agentic_organization/outputs/robustness/../../analysis/alt_criteria.py:104: ConvergenceWarning: MixedLM optimization failed, trying a different optimizer may help.
+  mm = smf.mixedlm("signed ~ sep_x*vis_x + rat_x + council_x", sov, groups=sov.eid).fit()
+/home/claude/sovereign_agentic_organization/outputs/robustness/../../analysis/alt_criteria.py:104: ConvergenceWarning: Gradient optimization failed, |grad| = 1.277132
+  mm = smf.mixedlm("signed ~ sep_x*vis_x + rat_x + council_x", sov, groups=sov.eid).fit()
+/home/claude/sovereign_agentic_organization/outputs/robustness/../../analysis/alt_criteria.py:104: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+  mm = smf.mixedlm("signed ~ sep_x*vis_x + rat_x + council_x", sov, groups=sov.eid).fit()
+stakeholder {"coupling": {"th": {"b": 0.02297653739131077, "se": 0.003458201803780246, "p": 3.0513602398371525e-11}, "y": {"b": -0.0189616401064526, "se": 0.007108117848730173, "p": 0.007639435333150812}, "T": {"b": -0.08346886031272814, "se": 0.007554060441569718, "p": 2.2035161719104654e-28}, "T0": {"b": 0.005828243158729982, "se": 0.007049480840651435, "p": 0.40837194968783075}}, "y_x_shown": {"b": -0.005132706093628636, "p": 6.499931488740297e-08}, "signed_vis": {"b": -0.05451491851332155, "p": 2.42491544632726e-06}}
+/home/claude/sovereign_agentic_organization/outputs/robustness/../../analysis/alt_criteria.py:104: ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+  mm = smf.mixedlm("signed ~ sep_x*vis_x + rat_x + council_x", sov, groups=sov.eid).fit()
+sustainability {"coupling": {"th": {"b": -0.0007278745070601036, "se": 0.006047439884580977, "p": 0.9041973682658955}, "y": {"b": -0.016697464394388944, "se": 0.007256052987630128, "p": 0.02138161165813619}, "T": {"b": -0.08382916602856305, "se": 0.007643138295476072, "p": 5.452485421777845e-28}, "T0": {"b": 0.006430436630042164, "se": 0.007090041667044668, "p": 0.36442403885175867}}, "y_x_shown": {"b": -0.005137558844403943, "p": 5.9474496960518395e-08}, "signed_vis": {"b": -0.05033173596261033, "p": 7.976595260691456e-06}}

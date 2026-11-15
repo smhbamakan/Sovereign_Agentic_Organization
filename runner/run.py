@@ -40,14 +40,15 @@ def plan(cfg):
         keys = ["separation", "visibility", "ratifier", "apex"]
         vals = [f.get(k, [d]) for k, d in zip(keys, ["distinct", "hidden", "off", "homogeneous"])]
         for combo in itertools.product(*vals):
-            cells.append(dict(regime="sovereign", **dict(zip(keys, combo))))
+            cells.append(dict(regime="sovereign", **dict(zip(keys, combo)), **st.get("cfg_extra", {})))
         for b in st.get("baselines", []):
             for bc in (st.get("baseline_councils") or [st.get("baseline_council", "homogeneous")]):
-                cells.append(dict(regime=b, separation="distinct", visibility="hidden", ratifier="off", apex=bc))
+                cells.append(dict(regime=b, separation="distinct", visibility="hidden", ratifier="off", apex=bc, **st.get("cfg_extra", {})))
         for i in range(st["episodes_per_cell"]):                 # round-robin: partial runs stay balanced across cells
             for c in cells:
                 seed = st["seed0"] + i
                 tag = c["regime"] if c["regime"] != "sovereign" else f"sov-{c['separation']}-{c['visibility']}-rat{c['ratifier']}"
+                if c.get("prompt_variant"): tag += f"-pv{c['prompt_variant']}"
                 specs.append(dict(id=f"{st['name']}_{st['layer']}_{tag}_{c['apex']}_s{seed}", study=st["name"], layer=st["layer"], cfg=c,
                                   council=c["apex"], seed=seed, quarters=st["quarters"], windows=st["windows"]))
     return specs

@@ -25,7 +25,12 @@ python "$A/build_data.py" "$DATA"
 python "$A/supp_an.py"                   # supp.json
 python "$A/perm.py"                      # perm.json (within-episode permutation tests)
 
+echo "[2b] benchmark robustness (about 30 minutes)"
+mkdir -p "$ROOT/outputs/robustness"; cd "$ROOT/outputs/robustness"
+python "$A/alt_criteria.py"               # alt_criteria.json
+
 echo "[3/4] figures"
+cd "$ROOT/outputs/main"
 python "$A/figs_pub.py"                  # Figs. 1-6
 python "$A/fig7.py"                      # Fig. 7
 

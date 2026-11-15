@@ -32,7 +32,7 @@ run_analysis.sh    Reproduces outputs/ and figures/ from data/results.zip
 
 ```bash
 python -m pip install -r requirements.txt
-./run_analysis.sh            # about 2 minutes; unpacks data/results.zip on first run
+./run_analysis.sh            # about 35 minutes (30 for the benchmark robustness); unpacks data/results.zip on first run
 ```
 
 No API access is needed. The script rebuilds every derived file in `outputs/` and every figure in `figures/`; the committed versions are the ones reported in the manuscript.
@@ -48,6 +48,7 @@ No API access is needed. The script rebuilds every derived file in `outputs/` an
 | `outputs/main/review_an.json` | `review_an.py` | Ratifier discrimination (Table 9), β(τ) (Fig. 6), numeric error floor, majority vote, episode accounting |
 | `outputs/followup/supp.json`, `perm.json` | `supp_an.py`, `perm.py` | Follow-up experiments S1–S4 and permutation tests (Fig. 7) |
 | `outputs/model/verify*_results.json` | `model/verify*.py` | Numerical verification of Propositions 1–5 |
+| `outputs/robustness/alt_criteria.json` | `alt_criteria.py` | Benchmark robustness: independent re-solution of θ and re-analysis under two stakeholder-oriented criteria |
 | `figures/fig1–fig7` | `figs_pub.py`, `fig7.py` | All manuscript figures |
 
 ## Experimental design
@@ -80,6 +81,10 @@ Models: Gemini 3.1 Flash-Lite, Doubao Seed 2.0 Pro and GPT-5.6 Luna through an O
 3. **Correlated errors.** Models from different developers shared errors (φ 0.30–0.59; numeric ρ 0.57–0.89); majority vote of three models was less accurate than the best member; role personas did not decorrelate a model (φ 0.67–0.84).
 4. **Exercised vs nominal authority.** Designer-set charters shaped agent-governed priorities for several years (β falls from 0.94 to about 0 by quarter 30), and capable executives holding revision rights rarely used them.
 5. **Arrangements and capability.** In Case A, periodic human revision < agent sovereignty < fixed charter in value regret (3.1 < 7.6 < 14.7). The capability of the executing agent mattered more for realized performance than any constitutional arrangement, and supplying the warranted telos did not raise realized value for LLM executives.
+
+## Planned revision experiments
+
+`runner/config/revision_ijim.json` (52 episodes) replicates the key Case B comparisons with four independent episodes per cell, adds fixed-charter, periodic and oracle benchmarks for Case B, and tests the Case A coupling results with new seeds and an independently reworded prompt (`prompt_variant: "b"`), including the randomized perturbation of the displayed performance profile.
 
 ## Running new experiments
 
